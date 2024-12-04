@@ -1,16 +1,17 @@
 // eslint-disable-next-line no-unused-vars
 import React from 'react';
-import './header.css';
+import './head.css';
 
 const Header = () => {
   return (
     <header className="header">
         <nav className="nav container">
-            <a href="index.html" className="nav__logo">Dinesh</a>
+            <a href="index.html" className="nav__logo">Dinesh MN</a>
+
             <div className="nav__menu">
                 <ul className="nav__list grid">
                     <li className="nav__item"> 
-                        <a href="#home" className="nav__link">
+                        <a href="#home" className="nav__link active-link ">
                             <i className="uil uil-estate navcolor"></i>Home
                         </a>
                     </li>
@@ -35,7 +36,7 @@ const Header = () => {
 
                     <li className="nav__item"> 
                         <a href="#portfolio" className="nav__link">
-                            <i className="uil uil-scenary navcolor"> </i> Portfolio 
+                            <i className="uil uil-scenery navcolor"> </i> Portfolio 
                         </a>
                     </li>
 
@@ -45,6 +46,11 @@ const Header = () => {
                         </a>
                     </li>
                 </ul>
+
+                <i class="uil uil-times nav__close"></i>
+            </div>
+            <div className="nav__toggle"> 
+            <i class="uil uil-apps"></i>
             </div>
         </nav>
     </header>

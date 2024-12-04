@@ -1,0 +1,145 @@
+/* Header */
+.header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: var(--z-fixed);
+    background-color: var(--container-color);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Navigation Bar */
+.nav {
+    height: calc(var(--header-height) + 1.5rem);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1rem;
+    column-gap: 1rem;
+}
+
+.nav__logo,
+.nav__toggle {
+    color: var(--title-color);
+    font-weight: var(--font-medium);
+    font-size: var(--normal-font-size);
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+.nav__list {
+    display: flex;
+    column-gap: 2rem;
+    list-style: none;
+}
+
+.nav__item {
+    list-style: none;
+}
+
+.nav__link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: var(--small-font-size);
+    color: var(--title-color);
+    font-weight: var(--font-medium);
+    text-decoration: none;
+    transition: color 0.3s, transform 0.3s;
+}
+
+/* Active and Hover States */
+.active-link,
+.nav__link:hover {
+    color: var(--title-color-dark);
+    transform: scale(1.1);
+}
+
+/* Close and Toggle Buttons */
+.nav__close,
+.nav__toggle {
+    display: none;
+}
+
+/* Responsive Menu */
+@media (max-width: 768px) {
+    .nav__menu {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 70%;
+        height: 100%;
+        background-color: var(--container-color);
+        box-shadow: -2px 0 4px rgba(0, 0, 0, 0.1);
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 2rem;
+        gap: 1.5rem;
+        z-index: var(--z-fixed);
+    }
+
+    .nav__menu.active {
+        display: flex;
+        animation: slideIn 0.3s ease-in-out;
+    }
+
+    @keyframes slideIn {
+        from {
+            transform: translateX(100%);
+        }
+        to {
+            transform: translateX(0);
+        }
+    }
+
+    .nav__toggle {
+        display: block;
+        font-size: 1.5rem;
+        cursor: pointer;
+    }
+
+    .nav__close {
+        display: block;
+        position: absolute;
+        top: 1.5rem;
+        right: 1.5rem;
+        font-size: 1.5rem;
+        cursor: pointer;
+    }
+
+    .nav__list {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .nav__link {
+        font-size: var(--normal-font-size);
+    }
+}
+
+/* Smooth Scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Accessibility Focus Style */
+.nav__link:focus {
+    outline: 2px solid var(--title-color-dark);
+    outline-offset: 2px;
+    border-radius: 5px;
+}
+
+/* Utility Classes */
+:root {
+    --z-fixed: 1000;
+    --container-color: #fff;
+    --title-color: #333;
+    --title-color-dark: #0078D4;
+    --font-medium: 500;
+    --header-height: 4rem;
+    --small-font-size: 0.875rem;
+    --normal-font-size: 1rem;
+}
